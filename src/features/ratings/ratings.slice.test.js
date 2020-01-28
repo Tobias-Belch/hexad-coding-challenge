@@ -13,13 +13,13 @@ describe("ratings reducer", () => {
           id: "item-1"
         }
       })
-    ).toEqual({ "item-1": { id: "item-1", rating: 1 } });
+    ).toEqual({ "item-1": 1 });
 
     expect(
       ratings(
         {
-          "item-1": { id: "item-1", rating: 3 },
-          "item-2": { id: "item-2", rating: 1 }
+          "item-1": 3,
+          "item-2": 1
         },
         {
           type: increaseRating.type,
@@ -29,8 +29,8 @@ describe("ratings reducer", () => {
         }
       )
     ).toEqual({
-      "item-1": { id: "item-1", rating: 3 },
-      "item-2": { id: "item-2", rating: 2 }
+      "item-1": 3,
+      "item-2": 2
     });
   });
 
@@ -42,13 +42,13 @@ describe("ratings reducer", () => {
           id: "item-1"
         }
       })
-    ).toEqual({ "item-1": { id: "item-1", rating: -1 } });
+    ).toEqual({ "item-1": -1 });
 
     expect(
       ratings(
         {
-          "item-1": { id: "item-1", rating: 3 },
-          "item-2": { id: "item-2", rating: 1 }
+          "item-1": 3,
+          "item-2": 1
         },
         {
           type: decreaseRating.type,
@@ -58,8 +58,8 @@ describe("ratings reducer", () => {
         }
       )
     ).toEqual({
-      "item-1": { id: "item-1", rating: 3 },
-      "item-2": { id: "item-2", rating: 0 }
+      "item-1": 3,
+      "item-2": 0
     });
   });
 });

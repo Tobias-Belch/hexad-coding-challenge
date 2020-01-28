@@ -1,19 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface Rating {
-  id: string;
-  rating: number;
-}
-
-type RatingsState = { [id: string]: Rating };
+type RatingsState = { [id: string]: number };
 
 interface RatingActionPayload {
   id: string;
 }
 
+const initialState: RatingsState = {};
+
 const ratingsSlice = createSlice({
   name: "ratings",
-  initialState: {},
+  initialState: initialState,
   reducers: {
     decreaseRating(
       state: RatingsState,
@@ -21,9 +18,9 @@ const ratingsSlice = createSlice({
     ) {
       const { id } = payload;
       if (!state[id]) {
-        state[id] = { id, rating: 0 };
+        state[id] = 0;
       }
-      state[id].rating = state[id].rating - 1;
+      state[id] = state[id] - 1;
     },
     increaseRating(
       state: RatingsState,
@@ -31,9 +28,9 @@ const ratingsSlice = createSlice({
     ) {
       const { id } = payload;
       if (!state[id]) {
-        state[id] = { id, rating: 0 };
+        state[id] = 0;
       }
-      state[id].rating = state[id].rating + 1;
+      state[id] = state[id] + 1;
     }
   }
 });
