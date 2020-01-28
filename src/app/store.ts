@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
   ratings: ratingsReducer
 });
 
-type RootState = ReturnType<typeof rootReducer>;
+export type RootState = ReturnType<typeof rootReducer>;
 
 const store = configureStore({
   reducer: rootReducer
