@@ -61,7 +61,7 @@ const getRankedFoods = createSelector(
     const ratedFoods: RatedFood[] = [
       ...foods.map(food => ({ ...food, rating: ratings[food.id] || 0 }))
     ];
-    ratedFoods.sort((a, b) => a.rating - b.rating);
+    ratedFoods.sort((a, b) => b.rating - a.rating);
     return ratedFoods;
   }
 );
