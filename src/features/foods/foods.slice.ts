@@ -44,11 +44,7 @@ export const {
 
 export default foodsSlice.reducer;
 
-export const fetchFoods = (
-  org: string,
-  repo: string,
-  number: number
-): AppThunk => async dispatch => {
+export const fetchFoods = (): AppThunk => async dispatch => {
   try {
     dispatch(getFoodsStart());
     const foods = await getFoods();
